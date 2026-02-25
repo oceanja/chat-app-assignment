@@ -5,10 +5,13 @@ export const generateTokenAndSetCookie = (userId, res) => {
         expiresIn: '15d'
     });
 
+    const isProd = process.env.NODE_ENV !== "development";
     res.cookie("jwt", token, {
-        maxAge: 15 * 24 * 60 * 60 * 1000, // MS
-        httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-        sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-        secure: process.env.NODE_ENV !== "development"
+        maxAge: 15 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        // "none" is required for cross-origin (Vercel frontend ↔ Render backend)
+        // "strict" is fine for same-origin local dev
+        sameSite: isProd ? "none" : "strict",
+        secure: isProd, // must be true when sameSite is "none"
     });
 };
