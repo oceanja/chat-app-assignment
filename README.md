@@ -9,6 +9,7 @@
 [![Socket.io](https://img.shields.io/badge/Socket.io-4.x-010101?style=flat-square&logo=socket.io)](https://socket.io)
 
 A production-grade, full-stack WhatsApp-style messaging app with real-time delivery, typing indicators, read receipts, and presence tracking — built with the MERN stack.
+DEMO VIDEO : https://drive.google.com/file/d/1t3wkcklPigv6rW-TScpo82kiCA6eqS8I/view?usp=sharing
 
 </div>
 
@@ -176,20 +177,5 @@ When deploying, set `FRONTEND_URL` on Render to your Vercel domain and update th
 
 ---
 
-## 📋 Assignment Requirements Checklist
 
-- [x] JWT-based authentication (signup / login / logout)
-- [x] User profile with display name and About status
-- [x] Searchable user list for starting new chats
-- [x] Real-time 1-on-1 messaging via Socket.io
-- [x] Message persistence — full history loaded from MongoDB
-- [x] Online / Last Seen presence indicators
-- [x] Typing status indicator
-- [x] Read receipts (✓ sent → ✓✓ read)
-- [x] Responsive UI for mobile and desktop
 
----
-
-<div align="center">
-Built with the MERN stack · Socket.io · Tailwind CSS
-</div>
