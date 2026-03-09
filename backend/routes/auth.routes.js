@@ -5,6 +5,7 @@ import { protectRoute } from "../middleware/protectRoute.js";
 const router = express.Router();
 
 router.get("/me", protectRoute, getMe);
+router.get("/ping", (req, res) => res.json({ ok: true }));
 router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);

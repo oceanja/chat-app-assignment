@@ -9,6 +9,13 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 
+// Keep Render free tier awake
+if (process.env.NODE_ENV === "production") {
+    setInterval(() => {
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/api/auth/ping`).catch(() => {});
+    }, 14 * 60 * 1000);
+}
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
