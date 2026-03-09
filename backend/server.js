@@ -16,12 +16,15 @@ if (process.env.NODE_ENV === "production") {
     }, 14 * 60 * 1000);
 }
 
-app.use(express.json());
-app.use(cookieParser());
-app.use(cors({
+const corsOptions = {
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.use(express.json());
+app.use(cookieParser());
 
 // Connect to MongoDB
 const connectDB = async () => {
